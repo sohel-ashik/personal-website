@@ -1,0 +1,96 @@
+
+
+.about-parent{
+    width: 100%;
+    height: fit-content;
+    @apply pt-8
+}
+
+.about-heading{
+    @apply flex justify-center text-center
+}
+.about-pic-parent{
+    @apply flex justify-center mt-10
+}
+
+.about-pic{
+    height: 250px;
+    width: 250px;
+    background-image: url('../images/about.jpg');
+    background-position: center;
+    background-size: cover;
+    box-shadow: 2px 2px 8px  rgba(0, 0, 0, 0.792);
+
+    @apply rounded-xl
+}
+
+.description-sec{
+    @apply flex flex-col gap-8
+}
+
+.card-sec{
+    @apply mt-10 flex justify-between gap-4 select-none
+}
+
+.card-item{
+    @apply flex flex-col text-center  border border-gray-400 
+    pb-2 pt-3 pr-4 pl-4 rounded-lg shadow-md shadow-gray-600
+    w-1/3 
+    hover:scale-105 transition-all duration-500
+}
+
+.card-icon{
+    @apply text-lg;
+}
+
+.card-item p:nth-child(2){
+    font-size: .8rem;
+    @apply mt-2  
+}
+.card-item p:nth-child(3){
+    font-size: 10px;
+}
+
+.description-para{
+    @apply text-center text-gray-500 mb-20
+}
+
+.cv-download{
+    background-color: rgb(46, 46, 46);
+    @apply w-fit border border-black 
+    p-3 rounded-lg mt-5
+    flex gap-2 text-white
+    hover:bg-black hover:scale-105
+    transition-all duration-700
+    select-none
+}
+
+
+@media (min-width:800px) {
+    .about-content-all{
+        @apply flex gap-5 mt-20
+    }
+
+    .description-sec{
+        @apply pl-10 pr-10
+    }
+
+    .card-icon{
+        @apply text-2xl;
+    }
+
+    .about-pic{
+        height: 350px;
+        width: 350px;
+    }
+}
+
+@media ((min-width:801px) and (max-width:1100px)) {
+    .description-sec{
+        @apply pl-4 pr-4
+    }
+    .about-pic{
+        height: 320px;
+        width: 320px;
+    }
+}

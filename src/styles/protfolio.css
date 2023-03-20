@@ -1,0 +1,79 @@
+
+.protfolio-parent{
+    @apply mb-20 select-none
+}
+
+.protfolio-heading-sec p:nth-child(1){
+    @apply text-center text-3xl
+}
+
+.protfolio-heading-sec p:nth-child(2){
+    @apply text-center text-sm text-gray-500
+}
+
+.protfolio-content-parent{
+    @apply mt-12 flex flex-col gap-4
+}
+
+.protfolio-nav-sec{
+    @apply flex justify-center gap-3 
+}
+.protfolio-nav-item{
+    @apply 
+    pr-4 pl-4 pt-2 pb-2 rounded-lg
+}
+
+.protfolio-card-parent{
+    @apply flex flex-col pt-6 gap-5 pl-6 pr-6
+}
+
+.protfolio-single-card{
+    @apply flex flex-col gap-3 w-full
+    rounded-2xl
+    bg-gray-100
+    shadow-md shadow-black shadow-gray-500
+}
+.protfolio-pic-parent{
+    @apply flex justify-center p-3
+}
+.project-pic{
+    @apply w-full
+}
+.project-pic img{
+    @apply w-full h-full rounded-2xl
+}
+
+.protfolio-details{
+    @apply p-4 pt-0
+}
+.protfolio-details p{
+    @apply text-sm
+}
+
+.protfolio-details a{
+    align-items: center;
+    @apply text-sm text-gray-500 flex gap-1
+}
+
+@media (min-width:800px) {
+    .protfolio-content-parent{
+        align-items: center;
+    }
+    .protfolio-card-parent{
+        @apply grid grid-cols-2 pl-10 pr-10 gap-6 
+    }
+    .protfolio-card-parent-flex{
+        align-items: center;
+        @apply flex w-3/6
+    }
+    .protfolio-pic-parent{
+        @apply p-3
+    }
+    .protfolio-card-parent{
+        justify-items: center;
+        @apply w-3/5 
+    }
+    .protfolio-single-card{
+        @apply w-full
+    }
+}

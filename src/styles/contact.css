@@ -1,0 +1,108 @@
+
+.contact-div-parent{
+    @apply mb-32 
+    flex flex-col
+}
+
+
+.contact-heading-sec p:nth-child(1){
+    @apply text-center text-3xl
+}
+.contact-heading-sec p:nth-child(2){
+    @apply text-center text-sm text-gray-600 pt-1
+}
+
+.social-contact-parent{
+    align-items: center;
+    @apply flex flex-col gap-4
+}
+.social-contact-parent p:first-child{
+    @apply text-center mt-8 text-lg
+}
+
+.contact-card-div{
+    background-color: #BEFBFF;
+    @apply flex flex-col text-center 
+    border pt-4 pb-4 rounded-xl shadow-md shadow-gray-400
+     w-10/12
+}
+.contact-card-icon{
+    @apply text-3xl pb-2
+}
+.contact-card-div p:nth-child(2){
+    @apply text-lg pb-1
+}
+.contact-card-div p:nth-child(3){
+    @apply text-sm text-gray-500 pb-4
+}
+
+.contact-direct-link{
+    align-items: center;
+    @apply flex justify-center gap-3 text-gray-600
+}
+.contact-card-div a{
+    @apply text-gray-700
+}
+
+
+/* message section */
+.contact-send-message-parent{
+    @apply mt-10 flex flex-col
+}
+
+.contact-fieldset{
+    @apply border border-2 rounded-lg h-14 mt-4 flex justify-center p-5
+    
+}
+.contact-fieldset legend:first-child{
+   font-size: 12px;
+   @apply text-gray-500 
+}
+
+.contact-fieldset input{
+    height: 30px;
+    margin-top: -16px;
+    @apply block w-full border-gray-300 
+    rounded-sm p-2  focus:border-blue-400
+    focus:outline-none 
+}
+
+.contact-fieldset textarea{
+    margin-top: -12px;
+    @apply  w-full p-1 outline-none
+}
+
+.submit-message-project-btn{
+    align-items: center;
+    @apply mt-6 rounded-lg flex gap-3 p-4 w-fit
+    bg-gray-900 text-white hover:bg-gray-800 select-none
+    hover:scale-105 transition-all duration-700
+}
+
+@media (min-width:800px) {
+    .contact-div-parent{
+        @apply flex-row justify-center gap-10 
+    }
+    .social-contact-parent{
+        align-items: center;
+        @apply w-1/2  gap-3
+    }
+    .contact-send-message-parent{
+        @apply w-1/2
+    }
+    .contact-card-div{
+        @apply w-4/6 
+        hover:scale-105 transition-all duration-500
+    }
+    .contact-card-icon{
+        @apply text-xl pb-3
+    }
+    .contact-card-div p:nth-child(2){
+        @apply  pb-1
+    }
+    .contact-card-div p:nth-child(3){
+        @apply text-sm text-gray-500 pb-2
+    }
+    
+    
+}

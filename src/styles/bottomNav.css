@@ -1,0 +1,63 @@
+
+
+.bottom-div-parent{
+    user-select: none;
+    position:fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #00525D;
+    margin-right: -1px;
+    color: white;
+    
+    box-shadow: 0px -4px 15px #151414ab;
+    @apply pb-4 pt-4 pr-4 pl-4 border-t-gray-600
+    
+    
+}
+
+.bottom-div-parent-expand{
+    user-select: none;
+    position:fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0px -4px 15px rgba(13, 2, 69, 0.463);
+    background-color: #00525D;
+    color: white;
+    margin-right: -1px;
+
+    @apply pb-2 pt-2 pr-4 pl-4 border-t-gray-600
+    h-52 pb-4
+}
+
+
+.bottom-nav{
+    @apply flex justify-between ;
+}
+
+.expandIcon{
+    font-size: 20px;
+}
+
+.nav-elements-expand{
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 30px;
+    column-gap: 1px;
+}
+
+.text-v-sm{
+    font-size: 12px;
+}
+
+
+
+
+@media (min-width:800px) {
+    .bottom-div-parent, .bottom-div-parent-expand{
+        display: none;
+    }
+    
+}

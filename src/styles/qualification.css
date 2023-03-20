@@ -1,0 +1,103 @@
+
+
+.qualification-heading{
+    align-items: center;
+    @apply flex flex-col text-center 
+}
+.qualification-heading p:first-child{
+    @apply text-3xl
+}
+.qualification-heading p:nth-child(2){
+    @apply text-sm text-gray-500
+}
+
+.quali-content{
+    @apply flex flex-col mt-12
+}
+.quali-content-heading{
+    @apply flex justify-center select-none
+    gap-8
+}
+.quali-content-heading-item{
+    @apply flex gap-2 hover:cursor-pointer
+}
+.quali-content-heading-item p{
+    font-size: 17px; 
+}
+
+.content-education-div{
+    @apply h-full w-full
+    mt-8 
+    flex flex-col
+}
+
+.compact-temp{
+    @apply flex 
+}
+
+.temp-cardl{
+    @apply h-fit w-1/2 border-r border-gray-600
+}
+.temp-card{
+    @apply h-fit w-1/2 border-l border-gray-600
+}
+
+.design-circle-parent{
+    @apply flex justify-center
+}
+
+.design-circle{
+    @apply h-2 w-2 bg-black rounded-full
+}
+
+
+.quali-single-card-parent{
+    @apply h-fit w-full pl-6 pr-6
+    flex flex-col
+}
+.quali-single-card-parent-left{
+    align-items: flex-end;
+}
+
+.quali-single-card-parent p:nth-child(1){
+    font-size: 16px;
+}
+.quali-subheading{
+    @apply text-sm text-gray-600 
+}
+
+.quali-single-card-date{
+    font-size: 12px;
+    align-items: center;
+    @apply flex gap-2 pt-2 text-gray-500
+}
+
+@media (min-width: 800px) {
+    .quali-content-heading{
+        @apply gap-12
+    }
+    .quali-content-heading-item{
+        align-items: center;
+    }
+    .quali-content-heading-item p{
+        font-size: 20px;
+    }
+    .design-circle{
+        @apply h-4 w-4 bg-gray-800
+    }
+    .quali-single-card-parent p:nth-child(1){
+        font-size: 18px;
+    }
+    .quali-subheading{
+        font-size: 16px;
+    }
+    
+    .quali-single-card-date{
+        font-size: 14px;
+        padding-top: 15px;
+    }
+    
+    .quali-single-card-parent{
+        @apply pl-12 pr-12
+    }
+}

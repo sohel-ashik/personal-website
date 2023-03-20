@@ -1,0 +1,26 @@
+
+
+.App{
+    @apply ml-32 mr-32 mt-4
+}
+
+.makeBold{
+    font-weight: bold !important;
+}
+
+@media (max-width: 1000px) {
+    .App{
+        font-size: 16px;
+        transition: 1s;
+        @apply ml-20 mr-20 
+    }
+    
+}
+
+@media (max-width: 800px){
+    .App{
+        font-size: 14px;
+        transition: 1s;
+        @apply ml-8 mr-8;
+    }
+}

@@ -1,0 +1,165 @@
+
+
+.home{
+    height: 100vh;
+    @apply w-full flex flex-row
+}
+
+.social-media-div{
+    @apply flex flex-col justify-center h-full gap-4 text-3xl
+}
+
+
+.details{
+    @apply flex pt-24
+}
+
+.name-details{
+    height: fit-content;
+    @apply flex gap-12 w-1/2 
+
+}
+.inside-name-details{
+    
+    
+}
+
+.knock-me-btn{
+    @apply
+    border border-black mt-10 p-3 rounded-md text-white bg-gray-900
+    hover:bg-black hover:scale-105 transition-all duration-500 
+    
+}
+.knock-me-icon{
+    color: white;
+}
+
+.picture-div{
+    background-image: url('../images/main_dp.jpg');
+    height: 400px;
+    width: 400px;
+    background-position: center;
+    background-size: cover;
+    margin-left: 20px;
+    border-radius: 10%;
+    box-shadow: 0px 0px 5px black;
+    animation: profile__animate 8s ease-in-out infinite 1s;
+}
+
+@keyframes profile__animate {
+    0% {
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+    50% {
+        border-radius: 30% 70% 70% 40%/50% 60% 30% 60%;
+    }
+    100% {
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+}
+
+
+@media (max-width: 1150px) {
+    .dev-name{
+        font-size: 30px !important;
+        font-weight: bold;
+    }
+
+}
+
+@media (max-width:1060px) {
+    .picture-div{
+        height: 350px;
+        width: 350px;
+        transition: 1s;
+    }
+}
+
+@media (max-width:900px) {
+    .hr-div{
+        @apply w-12 
+    }
+    .dev-type{
+        font-size: 16px !important;
+    }
+    
+}
+
+/* for mobile */
+@media (max-width: 800px) {
+    .home{
+        height: fit-content;
+        @apply flex-col pb-48;
+    }
+    .details{
+        flex-direction: column-reverse;
+        align-items: center;
+        @apply -mt-12
+    }
+
+    .name-details{
+        width: 100%;
+        justify-content: center;
+    }
+    .picture-div{
+        width: 250px;
+        height: 250px;
+    }
+    .pic-sec{
+        @apply flex justify-center w-full
+    }
+    .social-media-div{
+        @apply w-full text-2xl pr-4
+    }
+   
+    .hr-div{
+        display: none;
+    }
+
+    .inside-name-details{
+        align-items: center;
+    
+        width: 300px;
+        @apply mt-14 
+    }
+    .picture-div{
+        @apply mt-4
+    }
+    .scroll-down{
+        /* display: none !important; */
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media (max-width:500px) {
+    .picture-div{
+        height: 250px;
+        width: 250px;
+    }
+    .name-details{
+        @apply gap-2
+    }
+    .inside-name-details{
+        width: 100%;
+    }
+    .dev-name{
+        font-size: 26px !important;
+    }
+    .hr-div{
+        display: none;
+    }
+}
+
+@media (max-width:300px) {
+    .picture-div{
+        height: 200px;
+        width: 200px;
+    }
+
+    .dev-name{
+        font-size: 24px !important;
+    }
+    
+}
+
