@@ -87,7 +87,7 @@ export default function OG() {
             display: "flex",
           }}
         >
-          sohelashik.com
+          {new URL(siteConfig.url).hostname}
         </div>
       </div>
     ),

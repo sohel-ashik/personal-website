@@ -65,7 +65,7 @@ export default async function OG({ params }: { params: Promise<{ slug: string }>
         {/* Author strip */}
         <div style={{ position: "absolute", bottom: 40, right: 60, fontSize: 14, color: "#52525b", fontFamily: "monospace", display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 2 }}>
           <span style={{ color: "#a78bfa", fontWeight: 600 }}>{siteConfig.name}</span>
-          <span>sohelashik.com/blog</span>
+          <span>{new URL(siteConfig.url).hostname}/blog</span>
         </div>
       </div>
     ),

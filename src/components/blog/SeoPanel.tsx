@@ -40,7 +40,7 @@ export function SeoPanel({ slug, postTitle, postSummary, seo, onChange }: SeoPan
           <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-background)] p-3">
             <p className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-muted)] mb-2">Google preview</p>
             <p className="text-blue-400 text-sm font-medium leading-snug truncate">{effectiveTitle || "Post title"}</p>
-            <p className="text-green-600 text-xs mt-0.5">sohelashik.com/blog/{slug || "post-slug"}</p>
+            <p className="text-green-600 text-xs mt-0.5">{typeof window !== "undefined" ? window.location.hostname : "sohelashik.netlify.app"}/blog/{slug || "post-slug"}</p>
             <p className="text-[var(--color-muted-foreground)] text-xs mt-1 line-clamp-2">{effectiveDesc || "Post description"}</p>
           </div>
 
