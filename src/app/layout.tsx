@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CursorBlob } from "@/components/motion/CursorBlob";
+import { PageTracker } from "@/components/layout/PageTracker";
 import { personJsonLd, websiteJsonLd } from "@/lib/jsonld";
 import { siteConfig } from "@/content/seo";
 
@@ -70,8 +71,12 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
+      <head>
+        <link rel="alternate" type="application/rss+xml" title={`${siteConfig.name} — Writing`} href={`${siteConfig.url}/blog/rss.xml`} />
+      </head>
       <body className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)] font-sans antialiased">
         <ThemeProvider>
+          <PageTracker />
           <CursorBlob />
           <Navbar />
           <main id="main-content" className="relative z-10">

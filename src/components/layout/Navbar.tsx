@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { label: "Experience", href: "/#experience" },
   { label: "Projects", href: "/projects" },
   { label: "Skills", href: "/#skills" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -39,7 +40,7 @@ export function Navbar() {
       <header
         className={cn(
           "fixed top-0 z-50 w-full transition-all duration-300",
-          scrolled
+          scrolled || pathname !== "/"
             ? "border-b border-[var(--color-border)] bg-[var(--color-background)]/80 backdrop-blur-xl"
             : "bg-transparent"
         )}

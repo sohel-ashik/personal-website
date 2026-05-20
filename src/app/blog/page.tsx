@@ -2,72 +2,89 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, PenLine } from "lucide-react";
+import { Rss, PenLine } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
-import { BlogNotifyForm } from "@/components/sections/BlogNotifyForm";
+import { connectDB, isDBConfigured } from "@/lib/db";
+import { Post } from "@/lib/models/Post";
+import { serializePost } from "@/lib/models/Post";
+import { PostCard } from "@/components/blog/PostCard";
+import type { PostData } from "@/lib/models/Post";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = buildMetadata({
   title: "Writing",
   description:
-    "Articles and notes by Sohel Siddique Ashik on backend engineering, compliance automation, AWS, and DSA — coming soon.",
+    "Articles by Sohel Siddique Ashik on backend engineering, compliance automation, AWS, and problem-solving.",
   path: "/blog",
 });
 
-const topics = [
-  "Backend architecture & Node.js patterns",
-  "Compliance automation — how I built it",
-  "AWS services in production (AppSync, Lambda, DynamoDB)",
-  "DSA problem-solving breakdowns",
-  "TypeScript tips from real projects",
-];
+async function getPosts(): Promise<PostData[]> {
+  if (!isDBConfigured) return [];
+  try {
+    await connectDB();
+    const posts = await Post.find({ published: true })
+      .sort({ publishedAt: -1 })
+      .select("-content")
+      .lean();
+    return posts.map((p) => serializePost(p as Parameters<typeof serializePost>[0]));
+  } catch {
+    return [];
+  }
+}
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const posts = await getPosts();
+
   return (
     <div className="min-h-screen pt-24 pb-16">
-      <div className="mx-auto max-w-3xl px-6">
-        <div className="mb-6">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1.5 text-sm text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] transition-colors"
-          >
-            <ArrowLeft size={14} /> Back home
-          </Link>
-        </div>
+      <div className="mx-auto max-w-6xl px-6">
 
-        <div className="mb-12 text-center">
-          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]">
-            <PenLine size={28} className="text-[var(--color-accent)]" />
+        {/* Header */}
+        <div className="mb-12 flex items-end justify-between">
+          <div>
+            <p className="mb-2 font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
+              Writing
+            </p>
+            <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
+              {posts.length > 0 ? "Articles" : "Writing — coming soon."}
+            </h1>
+            {posts.length > 0 && (
+              <p className="mt-3 text-[var(--color-muted-foreground)]">
+                Thoughts on engineering, systems, and things I&apos;ve figured out along the way.
+              </p>
+            )}
           </div>
-
-          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-[var(--color-accent)]">
-            Writing
-          </p>
-          <h1 className="text-4xl font-bold tracking-tight md:text-5xl mb-4">
-            Coming soon.
-          </h1>
-          <p className="text-lg text-[var(--color-muted-foreground)] max-w-md mx-auto leading-relaxed">
-            I&apos;m working on articles covering things I care about in engineering.
-            Subscribe to get notified when the first post is live.
-          </p>
+          <a
+            href="/blog/rss.xml"
+            aria-label="RSS feed"
+            className="flex items-center gap-1.5 rounded-lg border border-[var(--color-border)] px-3 py-2 text-xs text-[var(--color-muted-foreground)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-all"
+          >
+            <Rss size={13} /> RSS
+          </a>
         </div>
 
-        {/* Topic teaser */}
-        <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 mb-10">
-          <h2 className="text-sm font-semibold text-[var(--color-foreground)] mb-4">
-            Topics I&apos;ll be writing about
-          </h2>
-          <ul className="space-y-2.5">
-            {topics.map((topic) => (
-              <li key={topic} className="flex items-center gap-2.5 text-sm text-[var(--color-muted-foreground)]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-accent)] flex-shrink-0" aria-hidden="true" />
-                {topic}
-              </li>
+        {posts.length === 0 ? (
+          /* Empty / coming-soon state */
+          <div className="flex flex-col items-center justify-center gap-6 py-20 text-center">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]">
+              <PenLine size={28} className="text-[var(--color-accent)]" />
+            </div>
+            <div>
+              <p className="text-lg font-semibold text-[var(--color-foreground)] mb-2">No posts yet</p>
+              <p className="text-[var(--color-muted-foreground)] max-w-sm">
+                I&apos;m working on articles covering backend engineering, compliance automation, AWS, and DSA.
+                Check back soon.
+              </p>
+            </div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {posts.map((post) => (
+              <PostCard key={post.slug} post={post} />
             ))}
-          </ul>
-        </div>
-
-        {/* Notify form */}
-        <BlogNotifyForm />
+          </div>
+        )}
       </div>
     </div>
   );
