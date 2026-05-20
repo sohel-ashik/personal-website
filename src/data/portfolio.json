@@ -1,0 +1,271 @@
+{
+  "meta": {
+    "siteUrl": "https://sohelashik.com",
+    "twitterHandle": "@SohelAshik2"
+  },
+
+  "profile": {
+    "name": "Sohel Siddique Ashik",
+    "shortName": "Ashik",
+    "role": "Software Engineer",
+    "tagline": "Backend-focused Software Engineer building reliable APIs, compliance automation, and AWS-managed systems.",
+    "location": "Lalmatia, Dhaka 1207, Bangladesh",
+    "email": "sohelashik594@gmail.com",
+    "phone": "+880 1772-998823",
+    "resumeUrl": "/resume.pdf",
+    "socials": {
+      "github": "https://github.com/sohel-ashik",
+      "linkedin": "https://linkedin.com/in/sohel-ashik",
+      "twitter": "https://twitter.com/SohelAshik2",
+      "facebook": "https://www.facebook.com/sohel.ashik594"
+    },
+    "stats": [
+      { "label": "DSA problems solved", "value": "400+" },
+      { "label": "Platforms automated", "value": "40+" },
+      { "label": "Compliance frameworks", "value": "4" },
+      { "label": "Years building", "value": "2+" }
+    ]
+  },
+
+  "experience": [
+    {
+      "company": "Nyntax",
+      "role": "Software Engineer",
+      "location": "Mirpur DOHS, Dhaka",
+      "start": "Dec 2024",
+      "end": "Present",
+      "bullets": [
+        "Own backend services with Express, Mongoose, and MongoDB — focused on system performance and reliability.",
+        "Built compliance automation across 40+ platforms by integrating APIs and automating evidence collection, control testing, and workflow validation.",
+        "Delivered compliance support for Delve (Y Combinator-backed) — reliable Puppeteer/CUA-based automation for audit-ready evidence and control checks across SOC 2, HIPAA, GDPR, and PCI."
+      ],
+      "stack": ["Node.js", "TypeScript", "Express", "MongoDB", "Mongoose", "Puppeteer", "CUA", "REST", "GraphQL"]
+    },
+    {
+      "company": "Doodle Inc.",
+      "role": "Jr. Software Engineer",
+      "location": "Mirpur DOHS, Dhaka",
+      "start": "Feb 2024",
+      "end": "Nov 2024",
+      "bullets": [
+        "Developed ~80% of the admin panel for a large job site using React.js, Redux, and Tailwind — improving site performance.",
+        "Improved AppSync query efficiency and integrated AWS services (Amplify, S3, DynamoDB, Cognito) for robust backend support."
+      ],
+      "stack": ["React", "Redux", "Tailwind", "AWS AppSync", "Amplify", "DynamoDB", "S3", "Cognito", "GraphQL"]
+    }
+  ],
+
+  "education": [
+    {
+      "degree": "BSc in CSE",
+      "institute": "Daffodil International University",
+      "location": "Dhaka, Bangladesh",
+      "duration": "2019 — 2023"
+    },
+    {
+      "degree": "HSC (Science)",
+      "institute": "Ulipur Govt. College",
+      "location": "Kurigram",
+      "duration": "2016 — 2018"
+    },
+    {
+      "degree": "SSC (Science)",
+      "institute": "Ulipur M.S. High School",
+      "location": "Kurigram",
+      "duration": "2014 — 2016"
+    }
+  ],
+
+  "skills": {
+    "languages": ["TypeScript", "JavaScript", "Python", "C"],
+    "backend":   ["Node.js", "Express", "REST APIs", "Puppeteer", "Browser/CUA automation"],
+    "frontend":  ["React", "Next.js", "Redux", "Tailwind CSS"],
+    "databases": ["MongoDB", "Mongoose", "PostgreSQL", "DynamoDB"],
+    "cloud":     ["AWS AppSync", "AWS Lambda", "EC2", "ECS", "ECR", "Amplify", "S3", "Cognito"],
+    "tools":     ["Git", "JIRA", "VS Code", "Cursor", "Claude", "Notion", "Postman", "Docker"],
+    "fundamentals": ["DSA (400+ problems)", "OOP", "System Design", "Clean Code", "Manual Testing"]
+  },
+
+  "seoKeywords": [
+    "Sohel Siddique Ashik",
+    "Sohel Ashik",
+    "Software Engineer",
+    "Backend Engineer",
+    "Node.js developer",
+    "TypeScript",
+    "Compliance automation",
+    "AWS",
+    "Bangladesh",
+    "Dhaka",
+    "Nyntax"
+  ],
+
+  "projects": [
+    {
+      "slug": "compliance-automation",
+      "title": "Compliance Automation Platform",
+      "summary": "Automated SOC 2, HIPAA, GDPR & PCI compliance evidence collection across 40+ SaaS platforms for a YC-backed startup.",
+      "description": "At Nyntax, I engineered a compliance automation platform that dramatically reduces the manual effort required for security audits. The system integrates with 40+ third-party platforms via their APIs and browser-based automation (Puppeteer / CUA) to gather audit-ready evidence automatically.\n\nThe platform was purpose-built to support Delve, a Y Combinator-backed compliance startup, enabling their customers to achieve and maintain certifications in SOC 2, HIPAA, GDPR, and PCI without tedious manual evidence gathering.\n\nCore engineering challenges included handling rate-limited APIs reliably, building resilient browser automation that survives UI changes, and designing a workflow engine that parallelises evidence collection across dozens of platforms while keeping results consistent and idempotent.\n\nThe result: control testing that previously took days of analyst time now runs in hours, with a structured evidence corpus ready for auditors.",
+      "role": "Software Engineer",
+      "year": "2024 — Present",
+      "category": "Automation",
+      "stack": ["Node.js", "TypeScript", "Express", "MongoDB", "Mongoose", "Puppeteer", "CUA", "REST", "GraphQL"],
+      "highlights": [
+        "Integrated 40+ compliance platforms (AWS, GitHub, Google Workspace, Jira, etc.) for automated evidence collection",
+        "Built resilient Puppeteer/CUA automation for platforms without public APIs",
+        "Designed idempotent workflow engine for parallel control testing",
+        "Delivered SOC 2, HIPAA, GDPR, and PCI audit-ready evidence for Delve (YC-backed)",
+        "Reduced manual evidence collection from days to hours"
+      ],
+      "links": [],
+      "cover": "/images/projects/parental_control.jpg",
+      "featured": true,
+      "proprietary": true
+    },
+    {
+      "slug": "job-portal-admin",
+      "title": "Job Portal Admin Panel",
+      "summary": "Built 80% of the admin dashboard for a large-scale job site, integrating AWS AppSync, DynamoDB, and Cognito.",
+      "description": "During my time at Doodle Inc., I led the frontend development of a feature-rich admin panel for a high-traffic job site. The panel gave administrators full visibility and control over job listings, applicants, employer accounts, and site analytics.\n\nI contributed approximately 80% of the total admin panel codebase using React, Redux Toolkit, and Tailwind CSS. The state management architecture was carefully designed to handle complex async flows with RTK Query, minimising redundant API calls.\n\nOn the backend side, I optimised AppSync GraphQL queries to reduce data transfer and improved cold-start performance. I also integrated AWS Cognito for role-based access control, distinguishing super-admins from site managers with fine-grained permissions.",
+      "role": "Jr. Software Engineer",
+      "year": "2024",
+      "category": "Web",
+      "stack": ["React", "Redux", "Tailwind", "AWS AppSync", "Amplify", "DynamoDB", "S3", "Cognito", "GraphQL"],
+      "highlights": [
+        "Developed ~80% of the admin panel UI from scratch",
+        "Optimised AppSync GraphQL queries for reduced latency",
+        "Integrated AWS Cognito for role-based access control",
+        "Built reusable component library with Tailwind and RTK Query"
+      ],
+      "links": [],
+      "cover": "/images/projects/student_reg.jpg",
+      "featured": true,
+      "proprietary": true
+    },
+    {
+      "slug": "enquire-space",
+      "title": "Enquire Space",
+      "summary": "A Quora-inspired Q&A platform with multimedia support and a contributor rewards system.",
+      "description": "Enquire Space is a community knowledge-sharing platform I built in 2023. Inspired by Quora, it allows users to post questions, contribute answers in multiple content formats (text, images, embedded video), and earn reward points for high-quality contributions.\n\nThe rewards system was designed to incentivise knowledge sharing — users accumulate points that unlock profile badges and featured placement. The platform includes a full authentication flow, real-time notification system, and a rich text editor for formatting answers.\n\nBuilt as a full-stack project using Next.js (SSR for SEO), Node.js/Express backend, and MongoDB. The frontend uses a clean card-based layout with infinite scroll.",
+      "role": "Full-Stack Developer",
+      "year": "2023",
+      "category": "Web",
+      "stack": ["Next.js", "Node.js", "Express", "MongoDB", "React", "Tailwind CSS"],
+      "highlights": [
+        "Full-stack Q&A platform with multimedia answer support",
+        "Points-based rewards system for contributor incentivisation",
+        "Real-time notifications and activity feed",
+        "SSR with Next.js for improved SEO"
+      ],
+      "links": [{ "label": "Live Demo", "href": "https://enquirespace.netlify.app" }],
+      "cover": "/images/projects/quiz_app_bg.jpg",
+      "featured": true,
+      "proprietary": false
+    },
+    {
+      "slug": "fake-news-bilstm",
+      "title": "Multiclass Fake News Detection with BiLSTM",
+      "summary": "Conference-published NLP research using Bidirectional LSTM to classify fake news across multiple categories.",
+      "description": "In 2021, I co-authored a research paper published at the CLEF 2021 CheckThat! Lab, targeting multiclass fake news detection using deep learning.\n\nThe system employs a Bidirectional LSTM (BiLSTM) architecture trained on a labelled dataset of news articles to classify them into multiple veracity categories. Text preprocessing, tokenisation, and embedding strategies were central to improving classification accuracy.\n\nThe paper was published in the CEUR Workshop Proceedings (Vol. 2936) and represents one of the earliest applications of BiLSTM to multiclass fake news classification in low-resource settings.",
+      "role": "Researcher & Co-Author",
+      "year": "2021",
+      "category": "Research",
+      "stack": ["Python", "TensorFlow", "Keras", "NLP", "BiLSTM", "Word2Vec"],
+      "highlights": [
+        "Published at CLEF 2021 CheckThat! Lab (CEUR-WS Vol. 2936)",
+        "Multiclass fake news classification with BiLSTM",
+        "Custom text preprocessing and embedding pipeline",
+        "Benchmarked against baseline NLP classifiers"
+      ],
+      "links": [
+        { "label": "Read Paper", "href": "http://ceur-ws.org/Vol-2936/paper-33.pdf" },
+        { "label": "ResearchGate", "href": "https://www.researchgate.net/publication/354035324_M82B_at_CheckThat_2021_Multiclass_fake_news_detection_using_BiLSTM" }
+      ],
+      "cover": "/images/projects/fake_news_bg.jpg",
+      "featured": true,
+      "proprietary": false
+    },
+    {
+      "slug": "quiz-app",
+      "title": "Quiz Web App",
+      "summary": "Interactive quiz application with multiple categories and score tracking.",
+      "description": "A browser-based quiz application that presents multiple-choice questions across various knowledge categories. Users can select a category, answer timed questions, and receive a score summary at the end.\n\nBuilt with React on the frontend with a clean, responsive UI. State management handles question progression, timer logic, and score accumulation. Results are displayed with a breakdown by category.",
+      "role": "Frontend Developer",
+      "year": "2022",
+      "category": "Web",
+      "stack": ["React", "JavaScript", "CSS"],
+      "highlights": [
+        "Multi-category quiz with timed questions",
+        "Responsive UI with score breakdown",
+        "Smooth animations between question transitions"
+      ],
+      "links": [{ "label": "Live Demo", "href": "https://sohelashik-quizapp.netlify.app/" }],
+      "cover": "/images/projects/quiz_app_bg.jpg",
+      "featured": false,
+      "proprietary": false
+    },
+    {
+      "slug": "grocery-management",
+      "title": "Grocery Management System",
+      "summary": "Desktop application for managing grocery inventory, purchases, and sales records.",
+      "description": "A grocery management desktop application built for small retail stores. It handles product catalogue management, stock tracking, purchase order recording, and basic sales reporting.\n\nThe system provides a simple tabular interface for adding, editing, and removing grocery items, with automatic stock level alerts when quantities fall below thresholds.",
+      "role": "Developer",
+      "year": "2022",
+      "category": "App",
+      "stack": ["Java", "JavaFX", "MySQL"],
+      "highlights": [
+        "Inventory tracking with low-stock alerts",
+        "Purchase and sales record management",
+        "PDF report generation"
+      ],
+      "links": [
+        { "label": "Source / Demo", "href": "https://drive.google.com/drive/folders/1LmGWY6h99Il6SOCO6D81U9ApHxhBUelq?usp=share_link" }
+      ],
+      "cover": "/images/projects/grocery.jpg",
+      "featured": false,
+      "proprietary": false
+    },
+    {
+      "slug": "student-registration-logger",
+      "title": "Student Registration Logger",
+      "summary": "Automated logging system for student registration events and academic records.",
+      "description": "A student registration logging system designed for academic institutions. It records enrolment events, tracks course registrations, and generates summaries for administrative use.\n\nThe system captures registration timestamps, course selections, and student metadata, allowing administrators to generate formatted reports and detect anomalies in the registration process.",
+      "role": "Developer",
+      "year": "2022",
+      "category": "App",
+      "stack": ["Java", "JavaFX", "MySQL"],
+      "highlights": [
+        "Automated registration event logging",
+        "Admin dashboard with filterable student records",
+        "Exportable registration reports"
+      ],
+      "links": [
+        { "label": "Source / Demo", "href": "https://drive.google.com/drive/folders/1oRaUXp3LOvhQnZUpsqESM6BXTePSL2in?usp=share_link" }
+      ],
+      "cover": "/images/projects/student_reg.jpg",
+      "featured": false,
+      "proprietary": false
+    },
+    {
+      "slug": "parental-control-system",
+      "title": "Parental Control System",
+      "summary": "Desktop application enabling parents to monitor and restrict child device usage.",
+      "description": "A desktop parental control application that allows parents to set usage time limits, block specific applications, and review activity logs for their children's devices.\n\nThe system runs as a background service that enforces configured restrictions and logs application usage with timestamps. A parent-facing dashboard provides a summary of daily usage patterns and allows on-the-fly policy changes.",
+      "role": "Developer",
+      "year": "2022",
+      "category": "App",
+      "stack": ["Java", "JavaFX", "MySQL"],
+      "highlights": [
+        "Application blocking and time-limit enforcement",
+        "Activity logging with usage summaries",
+        "Parent dashboard for policy management"
+      ],
+      "links": [
+        { "label": "Source / Demo", "href": "https://drive.google.com/drive/folders/1bM9EiuCHSILi7xFtnKE_3rxH0eyFhmEc?usp=share_link" }
+      ],
+      "cover": "/images/projects/parental_control.jpg",
+      "featured": false,
+      "proprietary": false
+    }
+  ]
+}
