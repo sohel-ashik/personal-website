@@ -21,7 +21,7 @@ export function About() {
               <div className="absolute -inset-4 rounded-2xl border border-[var(--color-accent)]/20" aria-hidden="true" />
               <div className="relative overflow-hidden rounded-xl border border-[var(--color-border)] aspect-[4/5]">
                 <Image
-                  src="/images/avatar.jpg"
+                  src="/images/avatar.png"
                   alt="Sohel Siddique Ashik"
                   fill
                   priority

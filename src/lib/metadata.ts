@@ -8,7 +8,26 @@ interface BuildMetadataInput {
   image?: string;
   keywords?: string[];
   noIndex?: boolean;
+  type?: "website" | "article";
+  publishedTime?: string;
+  modifiedTime?: string;
 }
+
+const rss = {
+  "application/rss+xml": `${siteConfig.url}/blog/rss.xml`,
+};
+
+const indexRobots: Metadata["robots"] = {
+  index: true,
+  follow: true,
+  googleBot: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
+};
 
 export function buildMetadata({
   title,
@@ -17,10 +36,47 @@ export function buildMetadata({
   image,
   keywords = siteConfig.keywords,
   noIndex = false,
+  type = "website",
+  publishedTime,
+  modifiedTime,
 }: BuildMetadataInput = {}): Metadata {
-  const url = `${siteConfig.url}${path}`;
-  const ogImage = image ?? `${siteConfig.url}/opengraph-image`;
+  const url = path ? `${siteConfig.url}${path}` : siteConfig.url;
+  const ogImage = image ?? "/opengraph-image";
   const fullTitle = title ? `${title} — ${siteConfig.name}` : siteConfig.title;
+
+  const images = [
+    {
+      url: ogImage,
+      width: 1200,
+      height: 630,
+      alt: fullTitle,
+    },
+  ];
+
+  const openGraph: Metadata["openGraph"] =
+    type === "article"
+      ? {
+          type: "article",
+          url,
+          siteName: siteConfig.name,
+          title: fullTitle,
+          description,
+          locale: "en_US",
+          images,
+          ...(publishedTime ? { publishedTime } : {}),
+          ...(modifiedTime ? { modifiedTime } : {}),
+          authors: [siteConfig.name],
+          tags: keywords,
+        }
+      : {
+          type: "website",
+          url,
+          siteName: siteConfig.name,
+          title: fullTitle,
+          description,
+          locale: "en_US",
+          images,
+        };
 
   return {
     title: title
@@ -33,22 +89,9 @@ export function buildMetadata({
     metadataBase: new URL(siteConfig.url),
     alternates: {
       canonical: url,
+      types: rss,
     },
-    openGraph: {
-      type: "website",
-      url,
-      siteName: siteConfig.name,
-      title: fullTitle,
-      description,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: fullTitle,
-        },
-      ],
-    },
+    openGraph,
     twitter: {
       card: "summary_large_image",
       site: siteConfig.twitterHandle,
@@ -57,12 +100,6 @@ export function buildMetadata({
       description,
       images: [ogImage],
     },
-    robots: noIndex
-      ? { index: false, follow: false }
-      : {
-          index: true,
-          follow: true,
-          googleBot: { index: true, follow: true, "max-image-preview": "large" },
-        },
+    robots: noIndex ? { index: false, follow: false } : indexRobots,
   };
 }

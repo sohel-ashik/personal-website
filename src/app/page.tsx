@@ -1,3 +1,4 @@
+import { jsonLdScript, profilePageJsonLd } from "@/lib/jsonld";
 import { Hero } from "@/components/sections/Hero";
 import { Stats } from "@/components/sections/Stats";
 import { About } from "@/components/sections/About";
@@ -10,6 +11,10 @@ import { Contact } from "@/components/sections/Contact";
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(profilePageJsonLd()) }}
+      />
       <Hero />
       <Stats />
       <About />

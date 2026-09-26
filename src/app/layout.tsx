@@ -6,7 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CursorBlob } from "@/components/motion/CursorBlob";
 import { PageTracker } from "@/components/layout/PageTracker";
-import { personJsonLd, websiteJsonLd } from "@/lib/jsonld";
+import { jsonLdScript, personJsonLd, websiteJsonLd } from "@/lib/jsonld";
 import { siteConfig } from "@/content/seo";
 
 const geistSans = Geist({
@@ -28,18 +28,27 @@ export const metadata: Metadata = {
     template: `%s — ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  applicationName: siteConfig.name,
   keywords: siteConfig.keywords,
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
+  category: "technology",
+  alternates: {
+    canonical: siteConfig.url,
+    types: {
+      "application/rss+xml": `${siteConfig.url}/blog/rss.xml`,
+    },
+  },
   openGraph: {
     type: "website",
     url: siteConfig.url,
     siteName: siteConfig.name,
     title: siteConfig.title,
     description: siteConfig.description,
+    locale: "en_US",
     images: [
       {
-        url: `${siteConfig.url}/opengraph-image`,
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: siteConfig.title,
@@ -52,11 +61,18 @@ export const metadata: Metadata = {
     creator: siteConfig.twitterHandle,
     title: siteConfig.title,
     description: siteConfig.description,
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -71,9 +87,6 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <head>
-        <link rel="alternate" type="application/rss+xml" title={`${siteConfig.name} — Writing`} href={`${siteConfig.url}/blog/rss.xml`} />
-      </head>
       <body className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)] font-sans antialiased">
         <ThemeProvider>
           <PageTracker />
@@ -87,11 +100,11 @@ export default function RootLayout({
 
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
+          dangerouslySetInnerHTML={{ __html: jsonLdScript(personJsonLd()) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }}
+          dangerouslySetInnerHTML={{ __html: jsonLdScript(websiteJsonLd()) }}
         />
       </body>
     </html>

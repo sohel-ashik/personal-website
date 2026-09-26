@@ -5,6 +5,7 @@ import { Lock, ArrowLeft } from "lucide-react";
 import { projects } from "@/content/projects";
 import { Pill } from "@/components/ui/Pill";
 import { buildMetadata } from "@/lib/metadata";
+import { breadcrumbJsonLd, jsonLdScript, projectsItemListJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = buildMetadata({
   title: "Projects",
@@ -23,6 +24,21 @@ const categoryColors: Record<string, string> = {
 export default function ProjectsPage() {
   return (
     <div className="min-h-screen pt-24 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(projectsItemListJsonLd()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(
+            breadcrumbJsonLd([
+              { name: "Home", href: "/" },
+              { name: "Projects", href: "/projects" },
+            ])
+          ),
+        }}
+      />
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-4">
           <Link

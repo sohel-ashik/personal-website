@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Rss, PenLine } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
+import { blogJsonLd, breadcrumbJsonLd, jsonLdScript } from "@/lib/jsonld";
 import { connectDB, isDBConfigured } from "@/lib/db";
 import { Post } from "@/lib/models/Post";
 import { serializePost } from "@/lib/models/Post";
@@ -38,6 +39,21 @@ export default async function BlogPage() {
 
   return (
     <div className="min-h-screen pt-24 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(blogJsonLd(posts)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(
+            breadcrumbJsonLd([
+              { name: "Home", href: "/" },
+              { name: "Writing", href: "/blog" },
+            ])
+          ),
+        }}
+      />
       <div className="mx-auto max-w-6xl px-6">
 
         {/* Header */}

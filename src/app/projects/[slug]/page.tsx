@@ -6,8 +6,7 @@ import { ArrowLeft, Lock, ExternalLink, Calendar, User } from "lucide-react";
 import { projects, getProjectBySlug } from "@/content/projects";
 import { Pill } from "@/components/ui/Pill";
 import { buildMetadata } from "@/lib/metadata";
-import { creativeWorkJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
-import { siteConfig } from "@/content/seo";
+import { creativeWorkJsonLd, breadcrumbJsonLd, jsonLdScript } from "@/lib/jsonld";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -26,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: project.title,
     description: project.summary,
     path: `/projects/${slug}`,
-    image: `${siteConfig.url}/projects/${slug}/opengraph-image`,
+    image: `/projects/${slug}/opengraph-image`,
     keywords: project.stack,
   });
 }
@@ -47,12 +46,12 @@ export default async function ProjectPage({ params }: Props) {
     <div className="min-h-screen pt-24 pb-16">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(creativeWorkJsonLd(project)) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(creativeWorkJsonLd(project)) }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
+          __html: jsonLdScript(
             breadcrumbJsonLd([
               { name: "Home", href: "/" },
               { name: "Projects", href: "/projects" },

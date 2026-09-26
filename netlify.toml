@@ -2,8 +2,30 @@
   command = "npm run build"
   publish = ".next"
 
+[build.environment]
+  NODE_VERSION = "20"
+  NEXT_PUBLIC_SITE_URL = "https://sohelashik.com"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-[build.environment]
-  NODE_VERSION = "20"
+# Keep one hostname. Old Netlify URL and www both 301 to the apex domain.
+[[redirects]]
+  from = "https://sohelashik.netlify.app/*"
+  to = "https://sohelashik.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.sohelashik.com/*"
+  to = "https://sohelashik.com/:splat"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"

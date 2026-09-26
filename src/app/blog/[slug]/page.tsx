@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { connectDB, isDBConfigured } from "@/lib/db";
 import { Post, serializePost } from "@/lib/models/Post";
 import { siteConfig } from "@/content/seo";
-import { profile } from "@/content/profile";
+import { blogPostingJsonLd, breadcrumbJsonLd, jsonLdScript } from "@/lib/jsonld";
 import { Pill } from "@/components/ui/Pill";
 import { MarkdownContent } from "@/lib/markdown";
 import { TableOfContents } from "@/components/blog/TableOfContents";
@@ -38,11 +38,11 @@ async function getPost(slug: string): Promise<PostData | null> {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
-  if (!post) return {};
+  if (!post) return { robots: { index: false, follow: false } };
 
   const title = post.seo.title || post.title;
   const description = post.seo.description || post.summary;
-  const ogImage = post.seo.ogImage || `${siteConfig.url}/blog/${slug}/opengraph-image`;
+  const ogImage = post.seo.ogImage || `/blog/${slug}/opengraph-image`;
 
   return buildMetadata({
     title,
@@ -50,6 +50,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     path: `/blog/${slug}`,
     image: ogImage,
     keywords: post.seo.keywords.length ? post.seo.keywords : post.tags,
+    type: "article",
+    publishedTime: post.publishedAt,
+    modifiedTime: post.updatedAt,
   });
 }
 
@@ -62,33 +65,38 @@ export default async function BlogPostPage({ params }: Params) {
     ? new Date(post.publishedAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
     : null;
 
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.seo.title || post.title,
-    description: post.seo.description || post.summary,
-    author: { "@type": "Person", name: profile.name, url: siteConfig.url },
-    datePublished: post.publishedAt,
-    dateModified: post.updatedAt,
-    keywords: post.tags.join(", "),
-    image: post.seo.ogImage || post.coverImage || `${siteConfig.url}/blog/${slug}/opengraph-image`,
-    url: `${siteConfig.url}/blog/${slug}`,
-  };
-
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
-      { "@type": "ListItem", position: 2, name: "Blog", item: `${siteConfig.url}/blog` },
-      { "@type": "ListItem", position: 3, name: post.title, item: `${siteConfig.url}/blog/${slug}` },
-    ],
-  };
+  const image = post.seo.ogImage || post.coverImage || `${siteConfig.url}/blog/${slug}/opengraph-image`;
 
   return (
     <div className="min-h-screen pt-24 pb-16">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(
+            blogPostingJsonLd({
+              title: post.seo.title || post.title,
+              description: post.seo.description || post.summary,
+              slug,
+              publishedAt: post.publishedAt,
+              updatedAt: post.updatedAt,
+              tags: post.tags,
+              image,
+            })
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(
+            breadcrumbJsonLd([
+              { name: "Home", href: "/" },
+              { name: "Blog", href: "/blog" },
+              { name: post.title, href: `/blog/${slug}` },
+            ])
+          ),
+        }}
+      />
 
       <BlogViewTracker slug={slug} />
       <div className="mx-auto max-w-6xl px-6">

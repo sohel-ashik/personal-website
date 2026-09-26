@@ -8,18 +8,16 @@ export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = siteConfig.url;
-  const now = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: base, lastModified: now, changeFrequency: "monthly", priority: 1 },
-    { url: `${base}/projects`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${base}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${base}/resume`, lastModified: now, changeFrequency: "yearly", priority: 0.7 },
+    { url: base, changeFrequency: "monthly", priority: 1 },
+    { url: `${base}/projects`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/blog`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${base}/resume`, changeFrequency: "yearly", priority: 0.7 },
   ];
 
   const projectRoutes: MetadataRoute.Sitemap = projects.map((p) => ({
     url: `${base}/projects/${p.slug}`,
-    lastModified: now,
     changeFrequency: "yearly" as const,
     priority: 0.8,
   }));

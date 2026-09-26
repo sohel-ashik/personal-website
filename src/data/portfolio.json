@@ -1,7 +1,8 @@
 {
   "meta": {
-    "siteUrl": "https://sohelashik.netlify.app",
-    "twitterHandle": "@SohelAshik2"
+    "siteUrl": "https://sohelashik.com",
+    "twitterHandle": "@SohelAshik2",
+    "description": "Sohel Siddique Ashik is a software engineer in Dhaka. He builds Node.js APIs, compliance automation, and AWS systems. View projects and writing."
   },
 
   "profile": {
@@ -10,7 +11,7 @@
     "role": "Software Engineer",
     "tagline": "Backend-focused Software Engineer building reliable APIs, compliance automation, and AWS-managed systems.",
     "location": "Lalmatia, Dhaka 1207, Bangladesh",
-    "email": "sohelashik594@gmail.com",
+    "email": "contact@sohelashik.com",
     "phone": "+880 1772-998823",
     "resumeUrl": "/resume.pdf",
     "socials": {
@@ -20,10 +21,10 @@
       "facebook": "https://www.facebook.com/sohel.ashik594"
     },
     "stats": [
-      { "label": "DSA problems solved", "value": "400+" },
-      { "label": "Platforms automated", "value": "40+" },
+      { "label": "Clients served", "value": "6+" },
+      { "label": "Compliance tests automated", "value": "300+" },
       { "label": "Compliance frameworks", "value": "4" },
-      { "label": "Years building", "value": "2+" }
+      { "label": "Years building", "value": "3+" }
     ]
   },
 
@@ -90,11 +91,14 @@
     "Sohel Siddique Ashik",
     "Sohel Ashik",
     "Software Engineer",
+    "Software Engineer Dhaka",
     "Backend Engineer",
-    "Node.js developer",
+    "Node.js",
     "TypeScript",
     "Compliance automation",
     "AWS",
+    "GraphQL",
+    "MongoDB",
     "Bangladesh",
     "Dhaka",
     "Nyntax"
